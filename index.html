@@ -5062,7 +5062,7 @@ For the full list of page types and examples see the sections below.</p>
 
 <p>There is one main endpoint with the following URL structure:</p>
 
-<p><code>https://skyscanner.net/g/referrals/v1/{vertical}/{pagetype}</code></p>
+<p><code>https://skyscanner.net/g/referrals/v1/{vertical}/{pagetype}?adId=1103270&amp;campaignId=13416&amp;mediaPartnerId={yourmediapartnerID}</code></p>
 
 <p>The endpoint serves only GET requests and responds with HTTP status 301 redirecting to the desired Skyscanner page.</p>
 
@@ -5126,16 +5126,16 @@ using it for new referral links, as it will become fully deprecated eventually.<
 </tr>
 </thead><tbody>
 <tr>
-<td><code>mediaPartnerId</code> <br><span class="required">OPTIONAL</span></td>
-<td>The ID associated with the partner in Impact</td>
+<td><code>mediaPartnerId</code> <br><span class="required">REQUIRED</span></td>
+<td>The Impact partner ID as found at Impact.com</td>
 </tr>
 <tr>
-<td><code>adId</code> <br><span class="required">OPTIONAL</span></td>
-<td>The ID associated with the ad type in Impact</td>
+<td><code>adId</code> <br><span class="required">REQUIRED</span></td>
+<td>The Impact ad ID as found at Impact.com. This should always be set to <code>1103270</code> for referral links</td>
 </tr>
 <tr>
-<td><code>campaignId</code> <br><span class="required">OPTIONAL</span></td>
-<td>The ID associated with the campaign in Impact</td>
+<td><code>campaignId</code> <br><span class="required">REQUIRED</span></td>
+<td>The Impact campaign ID as found at Impact.com. This should always be set to <code>13416</code> for referral links</td>
 </tr>
 <tr>
 <td><code>utm_term</code> <br><span class="required">OPTIONAL</span></td>
@@ -5147,11 +5147,11 @@ using it for new referral links, as it will become fully deprecated eventually.<
 
 <p>Please try to avoid using <code>locale</code>, <code>market</code> and <code>currency</code>, as these values will be governed by Skyscanner market detection logic on the Skyscanner site. If you believe you need to use these, please discuss with your account manager.</p>
 
-<p><code>GET https://skyscanner.net/g/referrals/v1/flights/day-view/?origin=cdg&amp;destination=edi&amp;outboundDate=2022-01-07&amp;utm_term=summer&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1100662</code></p>
+<p><code>GET https://skyscanner.net/g/referrals/v1/flights/day-view/?origin=cdg&amp;destination=edi&amp;outboundDate=2022-01-07&amp;utm_term=summer&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1103270</code></p>
 
-<p><code>GET https://skyscanner.net/g/referrals/v1/flights/calendar-month-view/?origin=cdg&amp;destination=edi&amp;iym=1910&amp;utm_term=summer&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1100662</code></p>
+<p><code>GET https://skyscanner.net/g/referrals/v1/flights/calendar-month-view/?origin=cdg&amp;destination=edi&amp;iym=1910&amp;utm_term=summer&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1103270</code></p>
 
-<p><code>GET https://skyscanner.net/g/referrals/v1/cars/day-view/?pickupPlace=BCN&amp;dropoffPlace=BCN&amp;pickupTime=2022-01-01T10:00&amp;dropoffTime=2022-01-07T10:00&amp;driverAge=42&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1100662</code></p>
+<p><code>GET https://skyscanner.net/g/referrals/v1/cars/day-view/?pickupPlace=BCN&amp;dropoffPlace=BCN&amp;pickupTime=2022-01-01T10:00&amp;dropoffTime=2022-01-07T10:00&amp;driverAge=42&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1103270</code></p>
 
 <p>Preferred airlines:
 You can find IATA airline codes <a href="https://www.iata.org/publications/pages/code-search.aspx">here</a></p>
@@ -5264,7 +5264,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 </tr>
 </tbody></table>
 <h3 id='flights-home-page-type'>Flights Home Page Type</h3>
-<p><code>object</code> (<a href="flightshomepage.md">Flights Home Page</a>)</p>
+<p><code>object</code> Flights Home Page</p>
 <h2 id='flights-home-page-properties'>Flights Home Page Properties</h2>
 <table><thead>
 <tr>
@@ -5300,11 +5300,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="flightshomepage-properties-market.md">Market</a>)</p></li>
+<li><p>Type: <code>string</code> Market</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='market-type'>market Type</h4>
-<p><code>string</code> (<a href="flightshomepage-properties-market.md">Market</a>)</p>
+<p><code>string</code> Market</p>
 <h4 id='market-constraints'>market Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>market</code></p>
 <h3 id='locale'>locale</h3>
@@ -5314,11 +5314,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="flightshomepage-properties-locale.md">Locale</a>)</p></li>
+<li><p>Type: <code>string</code> Locale</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='locale-type'>locale Type</h4>
-<p><code>string</code> (<a href="flightshomepage-properties-locale.md">Locale</a>)</p>
+<p><code>string</code> Locale</p>
 <h4 id='locale-constraints'>locale Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>locale</code></p>
 <h3 id='currency'>currency</h3>
@@ -5328,11 +5328,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="flightshomepage-properties-currency.md">Currency</a>)</p></li>
+<li><p>Type: <code>string</code> Currency</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='currency-type'>currency Type</h4>
-<p><code>string</code> (<a href="flightshomepage-properties-currency.md">Currency</a>)</p>
+<p><code>string</code> Currency</p>
 <h4 id='currency-constraints'>currency Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>currency</code></p>
 <h2 id='flights-day-view-schema'>Flights Day View Schema</h2><div class="highlight"><pre class="highlight plaintext"><code>/flights/day-view
@@ -5361,7 +5361,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 </tr>
 </tbody></table>
 <h3 id='flights-day-view-type'>Flights Day View Type</h3>
-<p><code>object</code> (<a href="dayview.md">Flights Day View</a>)</p>
+<p><code>object</code> Flights Day View</p>
 <h2 id='flights-day-view-properties'>Flights Day View Properties</h2>
 <table><thead>
 <tr>
@@ -5517,11 +5517,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-origin.md">Origin</a>)</p></li>
+<li><p>Type: <code>string</code> Origin</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='origin-type'>origin Type</h4>
-<p><code>string</code> (<a href="dayview-properties-origin.md">Origin</a>)</p>
+<p><code>string</code> Origin</p>
 <h4 id='origin-constraints'>origin Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='destination'>destination</h3>
@@ -5531,11 +5531,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-destination.md">Destination</a>)</p></li>
+<li><p>Type: <code>string</code> Destination</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='destination-type'>destination Type</h4>
-<p><code>string</code> (<a href="dayview-properties-destination.md">Destination</a>)</p>
+<p><code>string</code> Destination</p>
 <h4 id='destination-constraints'>destination Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='outbounddate'>outboundDate</h3>
@@ -5545,11 +5545,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-outbound-date.md">Outbound Date</a>)</p></li>
+<li><p>Type: <code>string</code> Outbound Date</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='outbounddate-type'>outboundDate Type</h4>
-<p><code>string</code> (<a href="dayview-properties-outbound-date.md">Outbound Date</a>)</p>
+<p><code>string</code> Outbound Date</p>
 <h4 id='outbounddate-constraints'>outboundDate Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yymmdd</code></p>
 <h3 id='inbounddate'>inboundDate</h3>
@@ -5559,11 +5559,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-inbound-date.md">Inbound Date</a>)</p></li>
+<li><p>Type: <code>string</code> Inbound Date</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='inbounddate-type'>inboundDate Type</h4>
-<p><code>string</code> (<a href="dayview-properties-inbound-date.md">Inbound Date</a>)</p>
+<p><code>string</code> Inbound Date</p>
 <h4 id='inbounddate-constraints'>inboundDate Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yymmdd</code></p>
 <h3 id='adultsv2'>adultsv2</h3>
@@ -5573,11 +5573,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>integer</code> (<a href="dayview-properties-adult-passengers-adults-have-to-be-16-years-old-or-older.md">Adult passengers. Adults have to be 16 years old or older.</a>)</p></li>
+<li><p>Type: <code>integer</code> Adult passengers. Adults have to be 16 years old or older.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='adultsv2-type'>adultsv2 Type</h4>
-<p><code>integer</code> (<a href="dayview-properties-adult-passengers-adults-have-to-be-16-years-old-or-older.md">Adult passengers. Adults have to be 16 years old or older.</a>)</p>
+<p><code>integer</code> Adult passengers. Adults have to be 16 years old or older.</p>
 <h4 id='adultsv2-constraints'>adultsv2 Constraints</h4>
 <p><strong>minimum</strong>: the value of this number must greater than or equal to: <code>1</code></p>
 <h4 id='adultsv2-default-value'>adultsv2 Default Value</h4>
@@ -5590,11 +5590,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-child-passengers-add-a-child-and-specify-the-age-must-be-from-2-to-15.md">Child passengers. Add a child and specify the age (must be from 2 to 15).</a>)</p></li>
+<li><p>Type: <code>string</code> Child passengers. Add a child and specify the age (must be from 2 to 15).</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='childrenv2-type'>childrenv2 Type</h4>
-<p><code>string</code> (<a href="dayview-properties-child-passengers-add-a-child-and-specify-the-age-must-be-from-2-to-15.md">Child passengers. Add a child and specify the age (must be from 2 to 15).</a>)</p>
+<p><code>string</code> Child passengers. Add a child and specify the age (must be from 2 to 15).</p>
 <h4 id='childrenv2-constraints'>childrenv2 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>delimited-ages</code></p>
 <h3 id='infants'>infants</h3>
@@ -5604,11 +5604,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>integer</code> (<a href="dayview-properties-infant-passengers-an-infant-is-1-year-old-or-younger.md">Infant passengers. An infant is 1 year old or younger.</a>)</p></li>
+<li><p>Type: <code>integer</code> Infant passengers. An infant is 1 year old or younger.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='infants-type'>infants Type</h4>
-<p><code>integer</code> (<a href="dayview-properties-infant-passengers-an-infant-is-1-year-old-or-younger.md">Infant passengers. An infant is 1 year old or younger.</a>)</p>
+<p><code>integer</code> Infant passengers. An infant is 1 year old or younger.</p>
 <h3 id='cabinclass'>cabinclass</h3>
 <p>Cabin class for the flight, possible values are: economy, premiumeconomy, business and first</p>
 
@@ -5616,11 +5616,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-cabin-class.md">Cabin Class</a>)</p></li>
+<li><p>Type: <code>string</code> Cabin Class</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='cabinclass-type'>cabinclass Type</h4>
-<p><code>string</code> (<a href="dayview-properties-cabin-class.md">Cabin Class</a>)</p>
+<p><code>string</code> Cabin Class</p>
 <h4 id='cabinclass-constraints'>cabinclass Constraints</h4>
 <p><strong>enum</strong>: the value of this property must be equal to one of the following values:</p>
 
@@ -5657,11 +5657,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-trip-type.md">Trip Type</a>)</p></li>
+<li><p>Type: <code>string</code> Trip Type</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='rtn-type'>rtn Type</h4>
-<p><code>string</code> (<a href="dayview-properties-trip-type.md">Trip Type</a>)</p>
+<p><code>string</code> Trip Type</p>
 <h4 id='rtn-constraints'>rtn Constraints</h4>
 <p><strong>enum</strong>: the value of this property must be equal to one of the following values:</p>
 
@@ -5687,11 +5687,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>boolean</code> (<a href="dayview-properties-direct-flights-preferred.md">Direct Flights Preferred</a>)</p></li>
+<li><p>Type: <code>boolean</code> Direct Flights Preferred</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='preferdirects-type'>preferDirects Type</h4>
-<p><code>boolean</code> (<a href="dayview-properties-direct-flights-preferred.md">Direct Flights Preferred</a>)</p>
+<p><code>boolean</code> Direct Flights Preferred</p>
 <h3 id='showdirectdays'>showDirectDays</h3>
 <p>Show days with direct flights</p>
 
@@ -5699,11 +5699,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>boolean</code> (<a href="dayview-properties-show-days-with-direct-flights.md">Show days with direct flights</a>)</p></li>
+<li><p>Type: <code>boolean</code> Show days with direct flights</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='showdirectdays-type'>showDirectDays Type</h4>
-<p><code>boolean</code> (<a href="dayview-properties-show-days-with-direct-flights.md">Show days with direct flights</a>)</p>
+<p><code>boolean</code> Show days with direct flights</p>
 <h4 id='showdirectdays-default-value'>showDirectDays Default Value</h4>
 <p>The default value is:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="kc">true</span><span class="w">
@@ -5714,11 +5714,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>boolean</code> (<a href="dayview-properties-including-nearby-airports-as-an-outbound-place.md">Including nearby airports as an outbound place</a>)</p></li>
+<li><p>Type: <code>boolean</code> Including nearby airports as an outbound place</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='outboundaltsenabled-type'>outboundaltsenabled Type</h4>
-<p><code>boolean</code> (<a href="dayview-properties-including-nearby-airports-as-an-outbound-place.md">Including nearby airports as an outbound place</a>)</p>
+<p><code>boolean</code> Including nearby airports as an outbound place</p>
 <h3 id='inboundaltsenabled'>inboundaltsenabled</h3>
 <p>Including nearby airports as an inbound place</p>
 
@@ -5726,11 +5726,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>boolean</code> (<a href="dayview-properties-including-nearby-airports-as-an-inbound-place.md">Including nearby airports as an inbound place</a>)</p></li>
+<li><p>Type: <code>boolean</code> Including nearby airports as an inbound place</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='inboundaltsenabled-type'>inboundaltsenabled Type</h4>
-<p><code>boolean</code> (<a href="dayview-properties-including-nearby-airports-as-an-inbound-place.md">Including nearby airports as an inbound place</a>)</p>
+<p><code>boolean</code> Including nearby airports as an inbound place</p>
 <h3 id='alternativeorigins'>alternativeorigins</h3>
 <p>An array of location codes which will be used as alternative origins</p>
 
@@ -5762,11 +5762,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-market.md">Market</a>)</p></li>
+<li><p>Type: <code>string</code> Market</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='market-type'>market Type</h4>
-<p><code>string</code> (<a href="dayview-properties-market.md">Market</a>)</p>
+<p><code>string</code> Market</p>
 <h4 id='market-constraints'>market Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>market</code></p>
 <h3 id='locale'>locale</h3>
@@ -5776,11 +5776,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-locale.md">Locale</a>)</p></li>
+<li><p>Type: <code>string</code> Locale</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='locale-type'>locale Type</h4>
-<p><code>string</code> (<a href="dayview-properties-locale.md">Locale</a>)</p>
+<p><code>string</code> Locale</p>
 <h4 id='locale-constraints'>locale Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>locale</code></p>
 <h3 id='currency'>currency</h3>
@@ -5790,11 +5790,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-currency.md">Currency</a>)</p></li>
+<li><p>Type: <code>string</code> Currency</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='currency-type'>currency Type</h4>
-<p><code>string</code> (<a href="dayview-properties-currency.md">Currency</a>)</p>
+<p><code>string</code> Currency</p>
 <h4 id='currency-constraints'>currency Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>currency</code></p>
 <h3 id='sortby'>sortby</h3>
@@ -5804,11 +5804,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-sorting.md">Sorting</a>)</p></li>
+<li><p>Type: <code>string</code> Sorting</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='sortby-type'>sortby Type</h4>
-<p><code>string</code> (<a href="dayview-properties-sorting.md">Sorting</a>)</p>
+<p><code>string</code> Sorting</p>
 <h4 id='sortby-constraints'>sortby Constraints</h4>
 <p><strong>enum</strong>: the value of this property must be equal to one of the following values:</p>
 
@@ -5838,11 +5838,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-sets-the-dayview-airlines-filters.md">Sets the dayview airlines filters.</a>)</p></li>
+<li><p>Type: <code>string</code> Sets the dayview airlines filters.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='airlines-type'>airlines Type</h4>
-<p><code>string</code> (<a href="dayview-properties-sets-the-dayview-airlines-filters.md">Sets the dayview airlines filters.</a>)</p>
+<p><code>string</code> Sets the dayview airlines filters.</p>
 <h4 id='airlines-constraints'>airlines Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>airlines</code></p>
 <h3 id='alliances'>alliances</h3>
@@ -5852,11 +5852,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-sets-the-dayview-alliances-filters.md">Sets the dayview alliances filters.</a>)</p></li>
+<li><p>Type: <code>string</code> Sets the dayview alliances filters.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='alliances-type'>alliances Type</h4>
-<p><code>string</code> (<a href="dayview-properties-sets-the-dayview-alliances-filters.md">Sets the dayview alliances filters.</a>)</p>
+<p><code>string</code> Sets the dayview alliances filters.</p>
 <h4 id='alliances-constraints'>alliances Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>alliances</code></p>
 <h3 id='departure-times'>departure-times</h3>
@@ -5866,11 +5866,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-sets-the-dayview-departure-time-filters.md">Sets the dayview departure time filters.</a>)</p></li>
+<li><p>Type: <code>string</code> Sets the dayview departure time filters.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='departure-times-type'>departure-times Type</h4>
-<p><code>string</code> (<a href="dayview-properties-sets-the-dayview-departure-time-filters.md">Sets the dayview departure time filters.</a>)</p>
+<p><code>string</code> Sets the dayview departure time filters.</p>
 <h4 id='departure-times-constraints'>departure-times Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>departure-times</code></p>
 <h3 id='duration'>duration</h3>
@@ -5880,11 +5880,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>integer</code> (<a href="dayview-properties-sets-the-dayview-duration-filters.md">Sets the dayview duration filters.</a>)</p></li>
+<li><p>Type: <code>integer</code> Sets the dayview duration filters.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='duration-type'>duration Type</h4>
-<p><code>integer</code> (<a href="dayview-properties-sets-the-dayview-duration-filters.md">Sets the dayview duration filters.</a>)</p>
+<p><code>integer</code> Sets the dayview duration filters.</p>
 <h2 id='flights-browse-view-schema'>Flights Browse View Schema</h2><div class="highlight"><pre class="highlight plaintext"><code>/flights/browse-view
 </code></pre></div>
 <p>A schema definition for the flights browse view microsite supported parameters</p>
@@ -5911,7 +5911,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 </tr>
 </tbody></table>
 <h3 id='flights-browse-view-type'>Flights Browse View Type</h3>
-<p><code>object</code> (<a href="browseview.md">Flights Browse View</a>)</p>
+<p><code>object</code> Flights Browse View</p>
 <h2 id='flights-browse-view-properties'>Flights Browse View Properties</h2>
 <table><thead>
 <tr>
@@ -6013,11 +6013,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="browseview-properties-origin.md">Origin</a>)</p></li>
+<li><p>Type: <code>string</code> Origin</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='origin-type'>origin Type</h4>
-<p><code>string</code> (<a href="browseview-properties-origin.md">Origin</a>)</p>
+<p><code>string</code> Origin</p>
 <h4 id='origin-constraints'>origin Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='destination'>destination</h3>
@@ -6027,11 +6027,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="browseview-properties-destination.md">Destination</a>)</p></li>
+<li><p>Type: <code>string</code> Destination</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='destination-type'>destination Type</h4>
-<p><code>string</code> (<a href="browseview-properties-destination.md">Destination</a>)</p>
+<p><code>string</code> Destination</p>
 <h4 id='destination-constraints'>destination Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='outbounddate'>outboundDate</h3>
@@ -6041,11 +6041,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="browseview-properties-outbound-date.md">Outbound date</a>)</p></li>
+<li><p>Type: <code>string</code> Outbound date</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='outbounddate-type'>outboundDate Type</h4>
-<p><code>string</code> (<a href="browseview-properties-outbound-date.md">Outbound date</a>)</p>
+<p><code>string</code> Outbound date</p>
 <h4 id='outbounddate-constraints'>outboundDate Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-as-provided</code></p>
 <h3 id='inbounddate'>inboundDate</h3>
@@ -6055,11 +6055,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="browseview-properties-inbound-date.md">Inbound date</a>)</p></li>
+<li><p>Type: <code>string</code> Inbound date</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='inbounddate-type'>inboundDate Type</h4>
-<p><code>string</code> (<a href="browseview-properties-inbound-date.md">Inbound date</a>)</p>
+<p><code>string</code> Inbound date</p>
 <h4 id='inbounddate-constraints'>inboundDate Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-as-provided</code></p>
 <h3 id='adultsv2'>adultsv2</h3>
@@ -6069,11 +6069,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>integer</code> (<a href="browseview-properties-adult-passengers-adults-have-to-be-16-years-old-or-older.md">Adult passengers. Adults have to be 16 years old or older.</a>)</p></li>
+<li><p>Type: <code>integer</code> Adult passengers. Adults have to be 16 years old or older.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='adultsv2-type'>adultsv2 Type</h4>
-<p><code>integer</code> (<a href="browseview-properties-adult-passengers-adults-have-to-be-16-years-old-or-older.md">Adult passengers. Adults have to be 16 years old or older.</a>)</p>
+<p><code>integer</code> Adult passengers. Adults have to be 16 years old or older.</p>
 <h4 id='adultsv2-constraints'>adultsv2 Constraints</h4>
 <p><strong>minimum</strong>: the value of this number must greater than or equal to: <code>1</code></p>
 <h3 id='childrenv2'>childrenv2</h3>
@@ -6083,11 +6083,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="browseview-properties-child-passengers-add-a-child-and-specify-the-age-must-be-from-2-to-15.md">Child passengers. Add a child and specify the age (must be from 2 to 15).</a>)</p></li>
+<li><p>Type: <code>string</code> Child passengers. Add a child and specify the age (must be from 2 to 15).</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='childrenv2-type'>childrenv2 Type</h4>
-<p><code>string</code> (<a href="browseview-properties-child-passengers-add-a-child-and-specify-the-age-must-be-from-2-to-15.md">Child passengers. Add a child and specify the age (must be from 2 to 15).</a>)</p>
+<p><code>string</code> Child passengers. Add a child and specify the age (must be from 2 to 15).</p>
 <h4 id='childrenv2-constraints'>childrenv2 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>delimited-ages</code></p>
 <h3 id='infants'>infants</h3>
@@ -6097,11 +6097,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>integer</code> (<a href="browseview-properties-infant-passengers-an-infant-is-1-year-old-or-younger.md">Infant passengers. An infant is 1 year old or younger.</a>)</p></li>
+<li><p>Type: <code>integer</code> Infant passengers. An infant is 1 year old or younger.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='infants-type'>infants Type</h4>
-<p><code>integer</code> (<a href="browseview-properties-infant-passengers-an-infant-is-1-year-old-or-younger.md">Infant passengers. An infant is 1 year old or younger.</a>)</p>
+<p><code>integer</code> Infant passengers. An infant is 1 year old or younger.</p>
 <h3 id='oym'>oym</h3>
 <p>Departure date in the format: YYYY-MM</p>
 
@@ -6109,11 +6109,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="browseview-properties-departure-date.md">Departure date</a>)</p></li>
+<li><p>Type: <code>string</code> Departure date</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='oym-type'>oym Type</h4>
-<p><code>string</code> (<a href="browseview-properties-departure-date.md">Departure date</a>)</p>
+<p><code>string</code> Departure date</p>
 <h4 id='oym-constraints'>oym Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yymm</code></p>
 <h3 id='iym'>iym</h3>
@@ -6123,11 +6123,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="browseview-properties-arrival-date.md">Arrival date</a>)</p></li>
+<li><p>Type: <code>string</code> Arrival date</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='iym-type'>iym Type</h4>
-<p><code>string</code> (<a href="browseview-properties-arrival-date.md">Arrival date</a>)</p>
+<p><code>string</code> Arrival date</p>
 <h4 id='iym-constraints'>iym Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yymm</code></p>
 <h3 id='rtn'>rtn</h3>
@@ -6137,11 +6137,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="browseview-properties-trip-type.md">Trip type</a>)</p></li>
+<li><p>Type: <code>string</code> Trip type</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='rtn-type'>rtn Type</h4>
-<p><code>string</code> (<a href="browseview-properties-trip-type.md">Trip type</a>)</p>
+<p><code>string</code> Trip type</p>
 <h4 id='rtn-constraints'>rtn Constraints</h4>
 <p><strong>enum</strong>: the value of this property must be equal to one of the following values:</p>
 
@@ -6167,11 +6167,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>boolean</code> (<a href="browseview-properties-direct-flights-preferred.md">Direct flights preferred</a>)</p></li>
+<li><p>Type: <code>boolean</code> Direct flights preferred</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='preferdirects-type'>preferDirects Type</h4>
-<p><code>boolean</code> (<a href="browseview-properties-direct-flights-preferred.md">Direct flights preferred</a>)</p>
+<p><code>boolean</code> Direct flights preferred</p>
 <h3 id='market'>market</h3>
 <p>The market of the user. Examples: UK, US, ES</p>
 
@@ -6179,11 +6179,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="browseview-properties-market.md">Market</a>)</p></li>
+<li><p>Type: <code>string</code> Market</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='market-type'>market Type</h4>
-<p><code>string</code> (<a href="browseview-properties-market.md">Market</a>)</p>
+<p><code>string</code> Market</p>
 <h4 id='market-constraints'>market Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>market</code></p>
 <h3 id='locale'>locale</h3>
@@ -6193,11 +6193,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="browseview-properties-locale.md">Locale</a>)</p></li>
+<li><p>Type: <code>string</code> Locale</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='locale-type'>locale Type</h4>
-<p><code>string</code> (<a href="browseview-properties-locale.md">Locale</a>)</p>
+<p><code>string</code> Locale</p>
 <h4 id='locale-constraints'>locale Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>locale</code></p>
 <h3 id='currency'>currency</h3>
@@ -6207,11 +6207,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="browseview-properties-currency.md">Currency</a>)</p></li>
+<li><p>Type: <code>string</code> Currency</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='currency-type'>currency Type</h4>
-<p><code>string</code> (<a href="browseview-properties-currency.md">Currency</a>)</p>
+<p><code>string</code> Currency</p>
 <h4 id='currency-constraints'>currency Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>currency</code></p>
 <h2 id='flights-calendar-month-view-schema'>Flights Calendar Month View Schema</h2><div class="highlight"><pre class="highlight plaintext"><code>/flights/calendar-month-view
@@ -6240,7 +6240,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 </tr>
 </tbody></table>
 <h3 id='flights-calendar-month-view-type'>Flights Calendar Month View Type</h3>
-<p><code>object</code> (<a href="calendarmonthview.md">Flights Calendar Month View</a>)</p>
+<p><code>object</code> Flights Calendar Month View</p>
 <h2 id='flights-calendar-month-view-properties'>Flights Calendar Month View Properties</h2>
 <table><thead>
 <tr>
@@ -6342,11 +6342,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="calendarmonthview-properties-origin.md">Origin</a>)</p></li>
+<li><p>Type: <code>string</code> Origin</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='origin-type'>origin Type</h4>
-<p><code>string</code> (<a href="calendarmonthview-properties-origin.md">Origin</a>)</p>
+<p><code>string</code> Origin</p>
 <h4 id='origin-constraints'>origin Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='destination'>destination</h3>
@@ -6356,11 +6356,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="calendarmonthview-properties-destination.md">Destination</a>)</p></li>
+<li><p>Type: <code>string</code> Destination</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='destination-type'>destination Type</h4>
-<p><code>string</code> (<a href="calendarmonthview-properties-destination.md">Destination</a>)</p>
+<p><code>string</code> Destination</p>
 <h4 id='destination-constraints'>destination Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='oym'>oym</h3>
@@ -6370,11 +6370,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="calendarmonthview-properties-departure-date.md">Departure date</a>)</p></li>
+<li><p>Type: <code>string</code> Departure date</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='oym-type'>oym Type</h4>
-<p><code>string</code> (<a href="calendarmonthview-properties-departure-date.md">Departure date</a>)</p>
+<p><code>string</code> Departure date</p>
 <h4 id='oym-constraints'>oym Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yymm</code></p>
 <h3 id='iym'>iym</h3>
@@ -6384,11 +6384,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="calendarmonthview-properties-arrival-date.md">Arrival date</a>)</p></li>
+<li><p>Type: <code>string</code> Arrival date</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='iym-type'>iym Type</h4>
-<p><code>string</code> (<a href="calendarmonthview-properties-arrival-date.md">Arrival date</a>)</p>
+<p><code>string</code> Arrival date</p>
 <h4 id='iym-constraints'>iym Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yymm</code></p>
 <h3 id='adultsv2'>adultsv2</h3>
@@ -6398,11 +6398,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>integer</code> (<a href="calendarmonthview-properties-adult-passengers-adults-have-to-be-16-years-old-or-older.md">Adult passengers. Adults have to be 16 years old or older.</a>)</p></li>
+<li><p>Type: <code>integer</code> Adult passengers. Adults have to be 16 years old or older.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='adultsv2-type'>adultsv2 Type</h4>
-<p><code>integer</code> (<a href="calendarmonthview-properties-adult-passengers-adults-have-to-be-16-years-old-or-older.md">Adult passengers. Adults have to be 16 years old or older.</a>)</p>
+<p><code>integer</code> Adult passengers. Adults have to be 16 years old or older.</p>
 <h4 id='adultsv2-constraints'>adultsv2 Constraints</h4>
 <p><strong>minimum</strong>: the value of this number must greater than or equal to: <code>1</code></p>
 <h3 id='childrenv2'>childrenv2</h3>
@@ -6412,11 +6412,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="calendarmonthview-properties-child-passengers-add-a-child-and-specify-the-age-must-be-from-2-to-15.md">Child passengers. Add a child and specify the age (must be from 2 to 15).</a>)</p></li>
+<li><p>Type: <code>string</code> Child passengers. Add a child and specify the age (must be from 2 to 15).</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='childrenv2-type'>childrenv2 Type</h4>
-<p><code>string</code> (<a href="calendarmonthview-properties-child-passengers-add-a-child-and-specify-the-age-must-be-from-2-to-15.md">Child passengers. Add a child and specify the age (must be from 2 to 15).</a>)</p>
+<p><code>string</code> Child passengers. Add a child and specify the age (must be from 2 to 15).</p>
 <h4 id='childrenv2-constraints'>childrenv2 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>delimited-ages</code></p>
 <h3 id='infants'>infants</h3>
@@ -6426,11 +6426,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>integer</code> (<a href="calendarmonthview-properties-infant-passengers-an-infant-is-1-year-old-or-younger.md">Infant passengers. An infant is 1 year old or younger.</a>)</p></li>
+<li><p>Type: <code>integer</code> Infant passengers. An infant is 1 year old or younger.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='infants-type'>infants Type</h4>
-<p><code>integer</code> (<a href="calendarmonthview-properties-infant-passengers-an-infant-is-1-year-old-or-younger.md">Infant passengers. An infant is 1 year old or younger.</a>)</p>
+<p><code>integer</code> Infant passengers. An infant is 1 year old or younger.</p>
 <h3 id='rtn'>rtn</h3>
 <p>Trip type: 0 if oneway or 1 if return or multicity trip</p>
 
@@ -6438,11 +6438,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="calendarmonthview-properties-trip-type.md">Trip type</a>)</p></li>
+<li><p>Type: <code>string</code> Trip type</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='rtn-type'>rtn Type</h4>
-<p><code>string</code> (<a href="calendarmonthview-properties-trip-type.md">Trip type</a>)</p>
+<p><code>string</code> Trip type</p>
 <h4 id='rtn-constraints'>rtn Constraints</h4>
 <p><strong>enum</strong>: the value of this property must be equal to one of the following values:</p>
 
@@ -6468,11 +6468,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>boolean</code> (<a href="calendarmonthview-properties-direct-flights-preferred.md">Direct flights preferred</a>)</p></li>
+<li><p>Type: <code>boolean</code> Direct flights preferred</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='preferdirects-type'>preferDirects Type</h4>
-<p><code>boolean</code> (<a href="calendarmonthview-properties-direct-flights-preferred.md">Direct flights preferred</a>)</p>
+<p><code>boolean</code> Direct flights preferred</p>
 <h3 id='selectedoday'>selectedoday</h3>
 <p>Preselected outbound day of the month.</p>
 
@@ -6480,11 +6480,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="calendarmonthview-properties-preselected-outbound-day-of-the-month.md">Preselected outbound day of the month.</a>)</p></li>
+<li><p>Type: <code>string</code> Preselected outbound day of the month.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='selectedoday-type'>selectedoday Type</h4>
-<p><code>string</code> (<a href="calendarmonthview-properties-preselected-outbound-day-of-the-month.md">Preselected outbound day of the month.</a>)</p>
+<p><code>string</code> Preselected outbound day of the month.</p>
 <h4 id='selectedoday-constraints'>selectedoday Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>selected-date</code></p>
 <h3 id='selectediday'>selectediday</h3>
@@ -6494,11 +6494,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="calendarmonthview-properties-preselected-inbound-day-of-the-month.md">Preselected inbound day of the month.</a>)</p></li>
+<li><p>Type: <code>string</code> Preselected inbound day of the month.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='selectediday-type'>selectediday Type</h4>
-<p><code>string</code> (<a href="calendarmonthview-properties-preselected-inbound-day-of-the-month.md">Preselected inbound day of the month.</a>)</p>
+<p><code>string</code> Preselected inbound day of the month.</p>
 <h4 id='selectediday-constraints'>selectediday Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>selected-date</code></p>
 <h3 id='market'>market</h3>
@@ -6508,11 +6508,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="calendarmonthview-properties-market.md">Market</a>)</p></li>
+<li><p>Type: <code>string</code> Market</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='market-type'>market Type</h4>
-<p><code>string</code> (<a href="calendarmonthview-properties-market.md">Market</a>)</p>
+<p><code>string</code> Market</p>
 <h4 id='market-constraints'>market Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>market</code></p>
 <h3 id='locale'>locale</h3>
@@ -6522,11 +6522,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="calendarmonthview-properties-locale.md">Locale</a>)</p></li>
+<li><p>Type: <code>string</code> Locale</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='locale-type'>locale Type</h4>
-<p><code>string</code> (<a href="calendarmonthview-properties-locale.md">Locale</a>)</p>
+<p><code>string</code> Locale</p>
 <h4 id='locale-constraints'>locale Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>locale</code></p>
 <h3 id='currency'>currency</h3>
@@ -6536,11 +6536,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="calendarmonthview-properties-currency.md">Currency</a>)</p></li>
+<li><p>Type: <code>string</code> Currency</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='currency-type'>currency Type</h4>
-<p><code>string</code> (<a href="calendarmonthview-properties-currency.md">Currency</a>)</p>
+<p><code>string</code> Currency</p>
 <h4 id='currency-constraints'>currency Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>currency</code></p>
 <h2 id='flights-day-view-for-multicity-search-schema'>Flights Day View for multicity search Schema</h2><div class="highlight"><pre class="highlight plaintext"><code>/flights/multicity
@@ -6569,7 +6569,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 </tr>
 </tbody></table>
 <h3 id='flights-day-view-for-multicity-search-type'>Flights Day View for multicity search Type</h3>
-<p><code>object</code> (<a href="multicity.md">Flights Day View for multicity search</a>)</p>
+<p><code>object</code> Flights Day View for multicity search</p>
 <h2 id='flights-day-view-for-multicity-search-properties'>Flights Day View for multicity search Properties</h2>
 <table><thead>
 <tr>
@@ -6737,11 +6737,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-first-flight-origin.md">First flight origin</a>)</p></li>
+<li><p>Type: <code>string</code> First flight origin</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='origin0-type'>origin0 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-first-flight-origin.md">First flight origin</a>)</p>
+<p><code>string</code> First flight origin</p>
 <h4 id='origin0-constraints'>origin0 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='date0'>date0</h3>
@@ -6751,11 +6751,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-outbound-date-of-the-first-flight.md">Outbound Date of the first flight</a>)</p></li>
+<li><p>Type: <code>string</code> Outbound Date of the first flight</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='date0-type'>date0 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-outbound-date-of-the-first-flight.md">Outbound Date of the first flight</a>)</p>
+<p><code>string</code> Outbound Date of the first flight</p>
 <h4 id='date0-constraints'>date0 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yyyy-mm-dd</code></p>
 <h3 id='destination0'>destination0</h3>
@@ -6765,11 +6765,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-first-flight-destination.md">First flight destination</a>)</p></li>
+<li><p>Type: <code>string</code> First flight destination</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='destination0-type'>destination0 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-first-flight-destination.md">First flight destination</a>)</p>
+<p><code>string</code> First flight destination</p>
 <h4 id='destination0-constraints'>destination0 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='origin1'>origin1</h3>
@@ -6779,11 +6779,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-second-flight-origin.md">Second flight origin</a>)</p></li>
+<li><p>Type: <code>string</code> Second flight origin</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='origin1-type'>origin1 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-second-flight-origin.md">Second flight origin</a>)</p>
+<p><code>string</code> Second flight origin</p>
 <h4 id='origin1-constraints'>origin1 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='date1'>date1</h3>
@@ -6793,11 +6793,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-outbound-date-of-the-second-flight.md">Outbound Date of the second flight</a>)</p></li>
+<li><p>Type: <code>string</code> Outbound Date of the second flight</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='date1-type'>date1 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-outbound-date-of-the-second-flight.md">Outbound Date of the second flight</a>)</p>
+<p><code>string</code> Outbound Date of the second flight</p>
 <h4 id='date1-constraints'>date1 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yyyy-mm-dd</code></p>
 <h3 id='destination1'>destination1</h3>
@@ -6807,11 +6807,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-second-flight-destination.md">Second flight destination</a>)</p></li>
+<li><p>Type: <code>string</code> Second flight destination</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='destination1-type'>destination1 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-second-flight-destination.md">Second flight destination</a>)</p>
+<p><code>string</code> Second flight destination</p>
 <h4 id='destination1-constraints'>destination1 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='origin2'>origin2</h3>
@@ -6821,11 +6821,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-third-flight-origin.md">Third flight origin</a>)</p></li>
+<li><p>Type: <code>string</code> Third flight origin</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='origin2-type'>origin2 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-third-flight-origin.md">Third flight origin</a>)</p>
+<p><code>string</code> Third flight origin</p>
 <h4 id='origin2-constraints'>origin2 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='date2'>date2</h3>
@@ -6835,11 +6835,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-outbound-date-of-the-third-flight.md">Outbound Date of the third flight</a>)</p></li>
+<li><p>Type: <code>string</code> Outbound Date of the third flight</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='date2-type'>date2 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-outbound-date-of-the-third-flight.md">Outbound Date of the third flight</a>)</p>
+<p><code>string</code> Outbound Date of the third flight</p>
 <h4 id='date2-constraints'>date2 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yyyy-mm-dd</code></p>
 <h3 id='destination2'>destination2</h3>
@@ -6849,11 +6849,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-third-flight-destination.md">Third flight destination</a>)</p></li>
+<li><p>Type: <code>string</code> Third flight destination</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='destination2-type'>destination2 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-third-flight-destination.md">Third flight destination</a>)</p>
+<p><code>string</code> Third flight destination</p>
 <h4 id='destination2-constraints'>destination2 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='origin3'>origin3</h3>
@@ -6863,11 +6863,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-fourth-flight-origin.md">Fourth flight origin</a>)</p></li>
+<li><p>Type: <code>string</code> Fourth flight origin</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='origin3-type'>origin3 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-fourth-flight-origin.md">Fourth flight origin</a>)</p>
+<p><code>string</code> Fourth flight origin</p>
 <h4 id='origin3-constraints'>origin3 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='date3'>date3</h3>
@@ -6877,11 +6877,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-outbound-date-of-the-fourth-flight.md">Outbound Date of the fourth flight</a>)</p></li>
+<li><p>Type: <code>string</code> Outbound Date of the fourth flight</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='date3-type'>date3 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-outbound-date-of-the-fourth-flight.md">Outbound Date of the fourth flight</a>)</p>
+<p><code>string</code> Outbound Date of the fourth flight</p>
 <h4 id='date3-constraints'>date3 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yyyy-mm-dd</code></p>
 <h3 id='destination3'>destination3</h3>
@@ -6891,11 +6891,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-fourth-flight-destination.md">Fourth flight destination</a>)</p></li>
+<li><p>Type: <code>string</code> Fourth flight destination</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='destination3-type'>destination3 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-fourth-flight-destination.md">Fourth flight destination</a>)</p>
+<p><code>string</code> Fourth flight destination</p>
 <h4 id='destination3-constraints'>destination3 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='origin4'>origin4</h3>
@@ -6905,11 +6905,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-fifth-flight-origin.md">Fifth flight origin</a>)</p></li>
+<li><p>Type: <code>string</code> Fifth flight origin</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='origin4-type'>origin4 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-fifth-flight-origin.md">Fifth flight origin</a>)</p>
+<p><code>string</code> Fifth flight origin</p>
 <h4 id='origin4-constraints'>origin4 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='date4'>date4</h3>
@@ -6919,11 +6919,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-outbound-date-of-the-fifth-flight.md">Outbound Date of the fifth flight.</a>)</p></li>
+<li><p>Type: <code>string</code> Outbound Date of the fifth flight.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='date4-type'>date4 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-outbound-date-of-the-fifth-flight.md">Outbound Date of the fifth flight.</a>)</p>
+<p><code>string</code> Outbound Date of the fifth flight.</p>
 <h4 id='date4-constraints'>date4 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yyyy-mm-dd</code></p>
 <h3 id='destination4'>destination4</h3>
@@ -6933,11 +6933,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-fifth-flight-destination.md">Fifth flight destination</a>)</p></li>
+<li><p>Type: <code>string</code> Fifth flight destination</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='destination4-type'>destination4 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-fifth-flight-destination.md">Fifth flight destination</a>)</p>
+<p><code>string</code> Fifth flight destination</p>
 <h4 id='destination4-constraints'>destination4 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='origin5'>origin5</h3>
@@ -6947,11 +6947,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-sixth-flight-origin.md">Sixth flight origin</a>)</p></li>
+<li><p>Type: <code>string</code> Sixth flight origin</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='origin5-type'>origin5 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-sixth-flight-origin.md">Sixth flight origin</a>)</p>
+<p><code>string</code> Sixth flight origin</p>
 <h4 id='origin5-constraints'>origin5 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='date5'>date5</h3>
@@ -6961,11 +6961,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-outbound-date-of-the-sixth-flight.md">Outbound Date of the sixth flight</a>)</p></li>
+<li><p>Type: <code>string</code> Outbound Date of the sixth flight</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='date5-type'>date5 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-outbound-date-of-the-sixth-flight.md">Outbound Date of the sixth flight</a>)</p>
+<p><code>string</code> Outbound Date of the sixth flight</p>
 <h4 id='date5-constraints'>date5 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yyyy-mm-dd</code></p>
 <h3 id='destination5'>destination5</h3>
@@ -6975,11 +6975,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-sixth-flight-destination.md">Sixth flight destination</a>)</p></li>
+<li><p>Type: <code>string</code> Sixth flight destination</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='destination5-type'>destination5 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-sixth-flight-destination.md">Sixth flight destination</a>)</p>
+<p><code>string</code> Sixth flight destination</p>
 <h4 id='destination5-constraints'>destination5 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='adultsv2'>adultsv2</h3>
@@ -6989,11 +6989,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>integer</code> (<a href="multicity-properties-adult-passengers-adults-have-to-be-16-years-old-or-older.md">Adult passengers. Adults have to be 16 years old or older.</a>)</p></li>
+<li><p>Type: <code>integer</code> Adult passengers. Adults have to be 16 years old or older.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='adultsv2-type'>adultsv2 Type</h4>
-<p><code>integer</code> (<a href="multicity-properties-adult-passengers-adults-have-to-be-16-years-old-or-older.md">Adult passengers. Adults have to be 16 years old or older.</a>)</p>
+<p><code>integer</code> Adult passengers. Adults have to be 16 years old or older.</p>
 <h4 id='adultsv2-constraints'>adultsv2 Constraints</h4>
 <p><strong>minimum</strong>: the value of this number must greater than or equal to: <code>1</code></p>
 <h4 id='adultsv2-default-value'>adultsv2 Default Value</h4>
@@ -7006,11 +7006,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-child-passengers-add-a-child-and-specify-the-age-must-be-from-2-to-15.md">Child passengers. Add a child and specify the age (must be from 2 to 15).</a>)</p></li>
+<li><p>Type: <code>string</code> Child passengers. Add a child and specify the age (must be from 2 to 15).</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='childrenv2-type'>childrenv2 Type</h4>
-<p><code>string</code> (<a href="multicity-properties-child-passengers-add-a-child-and-specify-the-age-must-be-from-2-to-15.md">Child passengers. Add a child and specify the age (must be from 2 to 15).</a>)</p>
+<p><code>string</code> Child passengers. Add a child and specify the age (must be from 2 to 15).</p>
 <h4 id='childrenv2-constraints'>childrenv2 Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>delimited-ages</code></p>
 <h3 id='infants'>infants</h3>
@@ -7020,11 +7020,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>integer</code> (<a href="multicity-properties-infant-passengers-an-infant-is-1-year-old-or-younger.md">Infant passengers. An infant is 1 year old or younger.</a>)</p></li>
+<li><p>Type: <code>integer</code> Infant passengers. An infant is 1 year old or younger.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='infants-type'>infants Type</h4>
-<p><code>integer</code> (<a href="multicity-properties-infant-passengers-an-infant-is-1-year-old-or-younger.md">Infant passengers. An infant is 1 year old or younger.</a>)</p>
+<p><code>integer</code> Infant passengers. An infant is 1 year old or younger.</p>
 <h3 id='cabinclass'>cabinclass</h3>
 <p>Cabin class for the flight, possible values are: economy, premiumeconomy, business and first</p>
 
@@ -7032,11 +7032,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-cabin-class.md">Cabin Class</a>)</p></li>
+<li><p>Type: <code>string</code> Cabin Class</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='cabinclass-type'>cabinclass Type</h4>
-<p><code>string</code> (<a href="multicity-properties-cabin-class.md">Cabin Class</a>)</p>
+<p><code>string</code> Cabin Class</p>
 <h4 id='cabinclass-constraints'>cabinclass Constraints</h4>
 <p><strong>enum</strong>: the value of this property must be equal to one of the following values:</p>
 
@@ -7073,11 +7073,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-market.md">Market</a>)</p></li>
+<li><p>Type: <code>string</code> Market</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='market-type'>market Type</h4>
-<p><code>string</code> (<a href="multicity-properties-market.md">Market</a>)</p>
+<p><code>string</code> Market</p>
 <h4 id='market-constraints'>market Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>market</code></p>
 <h3 id='locale'>locale</h3>
@@ -7087,11 +7087,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-locale.md">Locale</a>)</p></li>
+<li><p>Type: <code>string</code> Locale</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='locale-type'>locale Type</h4>
-<p><code>string</code> (<a href="multicity-properties-locale.md">Locale</a>)</p>
+<p><code>string</code> Locale</p>
 <h4 id='locale-constraints'>locale Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>locale</code></p>
 <h3 id='currency'>currency</h3>
@@ -7101,11 +7101,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="multicity-properties-currency.md">Currency</a>)</p></li>
+<li><p>Type: <code>string</code> Currency</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='currency-type'>currency Type</h4>
-<p><code>string</code> (<a href="multicity-properties-currency.md">Currency</a>)</p>
+<p><code>string</code> Currency</p>
 <h4 id='currency-constraints'>currency Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>currency</code></p>
 <h2 id='cheap-flights-to-view-schema'>Cheap Flights To View Schema</h2><div class="highlight"><pre class="highlight plaintext"><code>/flights/cheap-flights-to
@@ -7134,7 +7134,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 </tr>
 </tbody></table>
 <h3 id='cheap-flights-to-view-type'>Cheap Flights To View Type</h3>
-<p><code>object</code> (<a href="cheapflightsto.md">Cheap Flights To View</a>)</p>
+<p><code>object</code> Cheap Flights To View</p>
 <h2 id='cheap-flights-to-view-properties'>Cheap Flights To View Properties</h2>
 <table><thead>
 <tr>
@@ -7176,11 +7176,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="cheapflightsto-properties-destination.md">Destination</a>)</p></li>
+<li><p>Type: <code>string</code> Destination</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='destination-type'>destination Type</h4>
-<p><code>string</code> (<a href="cheapflightsto-properties-destination.md">Destination</a>)</p>
+<p><code>string</code> Destination</p>
 <h4 id='destination-constraints'>destination Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>place</code></p>
 <h3 id='market'>market</h3>
@@ -7190,11 +7190,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="cheapflightsto-properties-market.md">Market</a>)</p></li>
+<li><p>Type: <code>string</code> Market</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='market-type'>market Type</h4>
-<p><code>string</code> (<a href="cheapflightsto-properties-market.md">Market</a>)</p>
+<p><code>string</code> Market</p>
 <h4 id='market-constraints'>market Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>market</code></p>
 <h3 id='locale'>locale</h3>
@@ -7204,11 +7204,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="cheapflightsto-properties-locale.md">Locale</a>)</p></li>
+<li><p>Type: <code>string</code> Locale</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='locale-type'>locale Type</h4>
-<p><code>string</code> (<a href="cheapflightsto-properties-locale.md">Locale</a>)</p>
+<p><code>string</code> Locale</p>
 <h4 id='locale-constraints'>locale Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>locale</code></p>
 <h3 id='currency'>currency</h3>
@@ -7218,11 +7218,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="cheapflightsto-properties-currency.md">Currency</a>)</p></li>
+<li><p>Type: <code>string</code> Currency</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='currency-type'>currency Type</h4>
-<p><code>string</code> (<a href="cheapflightsto-properties-currency.md">Currency</a>)</p>
+<p><code>string</code> Currency</p>
 <h4 id='currency-constraints'>currency Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>currency</code></p>
 <h2 id='flights-airline-schema'>Flights Airline Schema</h2><div class="highlight"><pre class="highlight plaintext"><code>/flights/flights-airline
@@ -7251,7 +7251,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 </tr>
 </tbody></table>
 <h3 id='flights-airline-type'>Flights Airline Type</h3>
-<p><code>object</code> (<a href="flightsairline.md">Flights Airline</a>)</p>
+<p><code>object</code> Flights Airline</p>
 <h2 id='flights-airline-properties'>Flights Airline Properties</h2>
 <table><thead>
 <tr>
@@ -7299,11 +7299,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="flightsairline-properties-the-airline-code.md">The airline code.</a>)</p></li>
+<li><p>Type: <code>string</code> The airline code.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='airlinecode-type'>airlineCode Type</h4>
-<p><code>string</code> (<a href="flightsairline-properties-the-airline-code.md">The airline code.</a>)</p>
+<p><code>string</code> The airline code.</p>
 <h4 id='airlinecode-constraints'>airlineCode Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>airline-code</code></p>
 <h3 id='airlinename'>airlineName</h3>
@@ -7313,11 +7313,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="flightsairline-properties-the-airline-name.md">The airline name.</a>)</p></li>
+<li><p>Type: <code>string</code> The airline name.</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='airlinename-type'>airlineName Type</h4>
-<p><code>string</code> (<a href="flightsairline-properties-the-airline-name.md">The airline name.</a>)</p>
+<p><code>string</code> The airline name.</p>
 <h4 id='airlinename-constraints'>airlineName Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>airline-name</code></p>
 <h3 id='market'>market</h3>
@@ -7327,11 +7327,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="flightsairline-properties-market.md">Market</a>)</p></li>
+<li><p>Type: <code>string</code> Market</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='market-type'>market Type</h4>
-<p><code>string</code> (<a href="flightsairline-properties-market.md">Market</a>)</p>
+<p><code>string</code> Market</p>
 <h4 id='market-constraints'>market Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>market</code></p>
 <h3 id='locale'>locale</h3>
@@ -7341,11 +7341,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="flightsairline-properties-locale.md">Locale</a>)</p></li>
+<li><p>Type: <code>string</code> Locale</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='locale-type'>locale Type</h4>
-<p><code>string</code> (<a href="flightsairline-properties-locale.md">Locale</a>)</p>
+<p><code>string</code> Locale</p>
 <h4 id='locale-constraints'>locale Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>locale</code></p>
 <h3 id='currency'>currency</h3>
@@ -7355,11 +7355,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="flightsairline-properties-currency.md">Currency</a>)</p></li>
+<li><p>Type: <code>string</code> Currency</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='currency-type'>currency Type</h4>
-<p><code>string</code> (<a href="flightsairline-properties-currency.md">Currency</a>)</p>
+<p><code>string</code> Currency</p>
 <h4 id='currency-constraints'>currency Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>currency</code></p>
 <h2 id='carhire-home-view-schema'>Carhire Home View Schema</h2><div class="highlight"><pre class="highlight plaintext"><code>/cars/home
@@ -7388,7 +7388,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 </tr>
 </tbody></table>
 <h3 id='carhire-home-view-type'>Carhire Home View Type</h3>
-<p><code>object</code> (<a href="carshome.md">Carhire Home View</a>)</p>
+<p><code>object</code> Carhire Home View</p>
 <h2 id='carhire-home-view-properties'>Carhire Home View Properties</h2>
 <table><thead>
 <tr>
@@ -7424,11 +7424,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="carshome-properties-market.md">Market</a>)</p></li>
+<li><p>Type: <code>string</code> Market</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='market-type'>market Type</h4>
-<p><code>string</code> (<a href="carshome-properties-market.md">Market</a>)</p>
+<p><code>string</code> Market</p>
 <h4 id='market-constraints'>market Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>market</code></p>
 <h3 id='locale'>locale</h3>
@@ -7438,11 +7438,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="carshome-properties-locale.md">Locale</a>)</p></li>
+<li><p>Type: <code>string</code> Locale</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='locale-type'>locale Type</h4>
-<p><code>string</code> (<a href="carshome-properties-locale.md">Locale</a>)</p>
+<p><code>string</code> Locale</p>
 <h4 id='locale-constraints'>locale Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>locale</code></p>
 <h3 id='currency'>currency</h3>
@@ -7452,11 +7452,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="carshome-properties-currency.md">Currency</a>)</p></li>
+<li><p>Type: <code>string</code> Currency</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='currency-type'>currency Type</h4>
-<p><code>string</code> (<a href="carshome-properties-currency.md">Currency</a>)</p>
+<p><code>string</code> Currency</p>
 <h4 id='currency-constraints'>currency Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>currency</code></p>
 <h2 id='carhire-day-view-schema'>Carhire Day View Schema</h2><div class="highlight"><pre class="highlight plaintext"><code>/cars/day-view
@@ -7485,7 +7485,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 </tr>
 </tbody></table>
 <h3 id='carhire-day-view-type'>Carhire Day View Type</h3>
-<p><code>object</code> (<a href="dayview.md">Carhire Day View</a>)</p>
+<p><code>object</code> Carhire Day View</p>
 <h2 id='carhire-day-view-properties'>Carhire Day View Properties</h2>
 <table><thead>
 <tr>
@@ -7551,11 +7551,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-pickup.md">Pickup</a>)</p></li>
+<li><p>Type: <code>string</code> Pickup</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='pickupplace-type'>pickupPlace Type</h4>
-<p><code>string</code> (<a href="dayview-properties-pickup.md">Pickup</a>)</p>
+<p><code>string</code> Pickup</p>
 <h4 id='pickupplace-constraints'>pickupPlace Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>carhire-place</code></p>
 <h3 id='dropoffplace'>dropoffPlace</h3>
@@ -7565,11 +7565,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-drop-off.md">Drop off</a>)</p></li>
+<li><p>Type: <code>string</code> Drop off</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='dropoffplace-type'>dropoffPlace Type</h4>
-<p><code>string</code> (<a href="dayview-properties-drop-off.md">Drop off</a>)</p>
+<p><code>string</code> Drop off</p>
 <h4 id='dropoffplace-constraints'>dropoffPlace Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>carhire-place</code></p>
 <h3 id='pickuptime'>pickupTime</h3>
@@ -7579,11 +7579,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-pickup-time.md">Pickup time</a>)</p></li>
+<li><p>Type: <code>string</code> Pickup time</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='pickuptime-type'>pickupTime Type</h4>
-<p><code>string</code> (<a href="dayview-properties-pickup-time.md">Pickup time</a>)</p>
+<p><code>string</code> Pickup time</p>
 <h4 id='pickuptime-constraints'>pickupTime Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yyyy-mm-ddThh:mm</code></p>
 <h3 id='dropofftime'>dropoffTime</h3>
@@ -7593,11 +7593,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-drop-off-time.md">Drop off time</a>)</p></li>
+<li><p>Type: <code>string</code> Drop off time</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='dropofftime-type'>dropoffTime Type</h4>
-<p><code>string</code> (<a href="dayview-properties-drop-off-time.md">Drop off time</a>)</p>
+<p><code>string</code> Drop off time</p>
 <h4 id='dropofftime-constraints'>dropoffTime Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yyyy-mm-ddThh:mm</code></p>
 <h3 id='driverage'>driverAge</h3>
@@ -7607,11 +7607,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is required</p></li>
-<li><p>Type: <code>integer</code> (<a href="dayview-properties-drivers-age.md">Driver&#39;s age</a>)</p></li>
+<li><p>Type: <code>integer</code> Driver&#39;s age</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='driverage-type'>driverAge Type</h4>
-<p><code>integer</code> (<a href="dayview-properties-drivers-age.md">Driver&#39;s age</a>)</p>
+<p><code>integer</code> Driver&#39;s age</p>
 <h4 id='driverage-constraints'>driverAge Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>driver-age</code></p>
 <h3 id='market'>market</h3>
@@ -7621,11 +7621,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-market.md">Market</a>)</p></li>
+<li><p>Type: <code>string</code> Market</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='market-type'>market Type</h4>
-<p><code>string</code> (<a href="dayview-properties-market.md">Market</a>)</p>
+<p><code>string</code> Market</p>
 <h4 id='market-constraints'>market Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>market</code></p>
 <h3 id='locale'>locale</h3>
@@ -7635,11 +7635,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-locale.md">Locale</a>)</p></li>
+<li><p>Type: <code>string</code> Locale</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='locale-type'>locale Type</h4>
-<p><code>string</code> (<a href="dayview-properties-locale.md">Locale</a>)</p>
+<p><code>string</code> Locale</p>
 <h4 id='locale-constraints'>locale Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>locale</code></p>
 <h3 id='currency'>currency</h3>
@@ -7649,11 +7649,11 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 <ul>
 <li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="dayview-properties-currency.md">Currency</a>)</p></li>
+<li><p>Type: <code>string</code> Currency</p></li>
 <li><p>cannot be null</p></li>
 </ul>
 <h4 id='currency-type'>currency Type</h4>
-<p><code>string</code> (<a href="dayview-properties-currency.md">Currency</a>)</p>
+<p><code>string</code> Currency</p>
 <h4 id='currency-constraints'>currency Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>currency</code></p>
 <h1 id='response-codes'>Response Codes</h1>
