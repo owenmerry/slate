@@ -5062,7 +5062,7 @@ For the full list of page types and examples see the sections below.</p>
 
 <p>There is one main endpoint with the following URL structure:</p>
 
-<p><code>https://skyscanner.net/g/referrals/v1/{vertical}/{pagetype}?adId=1103270&amp;campaignId=13416&amp;mediaPartnerId={yourmediapartnerID}</code></p>
+<p><code>https://skyscanner.net/g/referrals/v1/{vertical}/{pagetype}?adId=1100662&amp;campaignId=13416&amp;mediaPartnerId={yourmediapartnerID}</code></p>
 
 <p>The endpoint serves only GET requests and responds with HTTP status 301 redirecting to the desired Skyscanner page.</p>
 
@@ -5127,19 +5127,19 @@ using it for new referral links, as it will become fully deprecated eventually.<
 </thead><tbody>
 <tr>
 <td><code>mediaPartnerId</code> <br><span class="required">REQUIRED</span></td>
-<td>The Impact partner ID as found at Impact.com</td>
+<td>The Impact partner ID as found at Impact.com.</td>
 </tr>
 <tr>
 <td><code>adId</code> <br><span class="required">REQUIRED</span></td>
-<td>The Impact ad ID as found at Impact.com. This should always be set to <code>1103270</code> for referral links</td>
+<td>This is an Impact ID used to identify your ad type. This should always be set to <code>1100662</code>.</td>
 </tr>
 <tr>
 <td><code>campaignId</code> <br><span class="required">REQUIRED</span></td>
-<td>The Impact campaign ID as found at Impact.com. This should always be set to <code>13416</code> for referral links</td>
+<td>This is an Impact ID used to identify our Skyscanner Programme. This should always be set to <code>13416</code>.</td>
 </tr>
 <tr>
 <td><code>utm_term</code> <br><span class="required">OPTIONAL</span></td>
-<td>Used to send through a unique variable that you can track back to your campaigns.</td>
+<td>Additional alphanumeric tracking parameter you can add to your text links for additional tracking. This will be reported on Impact as Sub Id 2.</td>
 </tr>
 </tbody></table>
 <h2 id='examples'>Examples</h2>
@@ -5147,11 +5147,11 @@ using it for new referral links, as it will become fully deprecated eventually.<
 
 <p>Please try to avoid using <code>locale</code>, <code>market</code> and <code>currency</code>, as these values will be governed by Skyscanner market detection logic on the Skyscanner site. If you believe you need to use these, please discuss with your account manager.</p>
 
-<p><code>GET https://skyscanner.net/g/referrals/v1/flights/day-view/?origin=cdg&amp;destination=edi&amp;outboundDate=2022-01-07&amp;utm_term=summer&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1103270</code></p>
+<p><code>GET https://skyscanner.net/g/referrals/v1/flights/day-view/?origin=cdg&amp;destination=edi&amp;outboundDate=2022-01-07&amp;utm_term=summer&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1100662</code></p>
 
-<p><code>GET https://skyscanner.net/g/referrals/v1/flights/calendar-month-view/?origin=cdg&amp;destination=edi&amp;iym=1910&amp;utm_term=summer&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1103270</code></p>
+<p><code>GET https://skyscanner.net/g/referrals/v1/flights/calendar-month-view/?origin=cdg&amp;destination=edi&amp;iym=1910&amp;utm_term=summer&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1100662</code></p>
 
-<p><code>GET https://skyscanner.net/g/referrals/v1/cars/day-view/?pickupPlace=BCN&amp;dropoffPlace=BCN&amp;pickupTime=2022-01-01T10:00&amp;dropoffTime=2022-01-07T10:00&amp;driverAge=42&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1103270</code></p>
+<p><code>GET https://skyscanner.net/g/referrals/v1/cars/day-view/?pickupPlace=BCN&amp;dropoffPlace=BCN&amp;pickupTime=2022-01-01T10:00&amp;dropoffTime=2022-01-07T10:00&amp;driverAge=42&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1100662</code></p>
 
 <p>Preferred airlines:
 You can find IATA airline codes <a href="https://www.iata.org/publications/pages/code-search.aspx">here</a></p>
