@@ -489,6 +489,24 @@
                   <li>
                     <a href="#carhire-day-view-properties" class="toc-h2 toc-link" data-title="Carhire Day View Properties">Carhire Day View Properties</a>
                   </li>
+                  <li>
+                    <a href="#hotels-home-view-schema" class="toc-h2 toc-link" data-title="Hotels Home View Schema">Hotels Home View Schema</a>
+                  </li>
+                  <li>
+                    <a href="#hotels-home-view-properties" class="toc-h2 toc-link" data-title="Hotels Home View Properties">Hotels Home View Properties</a>
+                  </li>
+                  <li>
+                    <a href="#hotels-day-view-schema" class="toc-h2 toc-link" data-title="Hotels Day View Schema">Hotels Day View Schema</a>
+                  </li>
+                  <li>
+                    <a href="#hotels-day-view-properties" class="toc-h2 toc-link" data-title="Hotels Day View Properties">Hotels Day View Properties</a>
+                  </li>
+                  <li>
+                    <a href="#hotel-details-schema" class="toc-h2 toc-link" data-title="Hotel Details Schema">Hotel Details Schema</a>
+                  </li>
+                  <li>
+                    <a href="#hotel-details-properties" class="toc-h2 toc-link" data-title="Hotel Details Properties">Hotel Details Properties</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -5147,28 +5165,28 @@ using it for new referral links, as it will become fully deprecated eventually.<
 
 <p>Please try to avoid using <code>locale</code>, <code>market</code> and <code>currency</code>, as these values will be governed by Skyscanner market detection logic on the Skyscanner site. If you believe you need to use these, please discuss with your account manager.</p>
 
-<p><code>GET https://skyscanner.net/g/referrals/v1/flights/day-view/?origin=cdg&amp;destination=edi&amp;outboundDate=2022-01-07&amp;utm_term=summer&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1100662</code></p>
+<p><code>GET https://skyscanner.net/g/referrals/v1/flights/day-view/?origin=cdg&amp;destination=edi&amp;outboundDate=2022-02-07&amp;utm_term=summer&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1100662</code></p>
 
 <p><code>GET https://skyscanner.net/g/referrals/v1/flights/calendar-month-view/?origin=cdg&amp;destination=edi&amp;iym=1910&amp;utm_term=summer&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1100662</code></p>
 
-<p><code>GET https://skyscanner.net/g/referrals/v1/cars/day-view/?pickupPlace=BCN&amp;dropoffPlace=BCN&amp;pickupTime=2022-01-01T10:00&amp;dropoffTime=2022-01-07T10:00&amp;driverAge=42&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1100662</code></p>
+<p><code>GET https://skyscanner.net/g/referrals/v1/cars/day-view/?pickupPlace=BCN&amp;dropoffPlace=BCN&amp;pickupTime=2022-02-01T10:00&amp;dropoffTime=2022-02-07T10:00&amp;driverAge=42&amp;mediaPartnerId=2796596&amp;campaignId=13416&amp;adId=1100662</code></p>
 
 <p>Preferred airlines:
 You can find IATA airline codes <a href="https://www.iata.org/publications/pages/code-search.aspx">here</a></p>
 
-<p><code>GET https://skyscanner.net/g/referrals/v1/flights/day-view?airlines=AA,!FB&amp;market=UK&amp;currency=GBP&amp;locale=en-GB&amp;origin=cdg&amp;destination=edi&amp;outboundDate=2022-01-01&amp;inboundDate=2022-01-07</code></p>
+<p><code>GET https://skyscanner.net/g/referrals/v1/flights/day-view?airlines=AA,!FB&amp;market=UK&amp;currency=GBP&amp;locale=en-GB&amp;origin=cdg&amp;destination=edi&amp;outboundDate=2022-02-01&amp;inboundDate=2022-02-07</code></p>
 
 <p>Preferred alliances:</p>
 
-<p><code>GET https://skyscanner.net/g/referrals/v1/flights/day-view?alliances=oneworld,Star%20Alliance&amp;market=UK&amp;currency=GBP&amp;locale=en-GB&amp;origin=cdg&amp;destination=edi&amp;outboundDate=2022-01-01&amp;inboundDate=2022-01-07</code></p>
+<p><code>GET https://skyscanner.net/g/referrals/v1/flights/day-view?alliances=oneworld,Star%20Alliance&amp;market=UK&amp;currency=GBP&amp;locale=en-GB&amp;origin=cdg&amp;destination=edi&amp;outboundDate=2022-02-01&amp;inboundDate=2022-02-07</code></p>
 
 <p>Departure times - in this example, the query parameter configures the filters to have the first leg&#39;s departure time as default (-), and the second leg between 0 (00:00) and 990 minutes (16:30).</p>
 
-<p><code>GET https://skyscanner.net/g/referrals/v1/flights/day-view?departure-times=-%7C0-990&amp;market=UK&amp;currency=GBP&amp;locale=en-GB&amp;origin=cdg&amp;destination=edi&amp;outboundDate=2022-01-01&amp;inboundDate=2022-01-07</code></p>
+<p><code>GET https://skyscanner.net/g/referrals/v1/flights/day-view?departure-times=-%7C0-990&amp;market=UK&amp;currency=GBP&amp;locale=en-GB&amp;origin=cdg&amp;destination=edi&amp;outboundDate=2022-02-01&amp;inboundDate=2022-02-07</code></p>
 
 <p>Duration:</p>
 
-<p><code>GET https://skyscanner.net/g/referrals/v1/flights/day-view?duration=1320&amp;market=UK&amp;currency=GBP&amp;locale=en-GB&amp;origin=cdg&amp;destination=edi&amp;outboundDate=2022-01-01&amp;inboundDate=2022-01-07</code></p>
+<p><code>GET https://skyscanner.net/g/referrals/v1/flights/day-view?duration=1320&amp;market=UK&amp;currency=GBP&amp;locale=en-GB&amp;origin=cdg&amp;destination=edi&amp;outboundDate=2022-02-01&amp;inboundDate=2022-02-07</code></p>
 
 <p>Specific request query parameters are provided in the tables below.</p>
 
@@ -5195,19 +5213,19 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 </tr>
 <tr>
 <td><a href="#flights-day-view-supported-parameters-schema">day-view</a></td>
-<td>Flights Day View <a href="https://www.skyscanner.net/transport/flights/sof/ams/220101/220107/?adults=1&amp;children=2&amp;adultsv2=1&amp;childrenv2=3%7c2&amp;infants=0&amp;cabinclass=economy&amp;rtn=1&amp;preferdirects=false&amp;outboundaltsenabled=false&amp;inboundaltsenabled=false&amp;ref=home#/">Example Link</a></td>
+<td>Flights Day View <a href="https://www.skyscanner.net/transport/flights/sof/ams/220201/220207/?adults=1&amp;children=2&amp;adultsv2=1&amp;childrenv2=3%7c2&amp;infants=0&amp;cabinclass=economy&amp;rtn=1&amp;preferdirects=false&amp;outboundaltsenabled=false&amp;inboundaltsenabled=false&amp;ref=home#/">Example Link</a></td>
 </tr>
 <tr>
 <td><a href="#flights-calendar-month-view-supported-parameters-schema">calendar-month-view</a></td>
-<td>Flights MonthView <a href="https://www.skyscanner.net/transport/flights/sof/ams/?adults=1&amp;children=2&amp;adultsv2=1&amp;childrenv2=3%7C2&amp;infants=0&amp;cabinclass=economy&amp;rtn=1&amp;preferdirects=false&amp;outboundaltsenabled=false&amp;inboundaltsenabled=false&amp;oym=2201&amp;iym=2201&amp;ref=home&amp;selectedoday=01&amp;selectediday=01">Example Link</a></td>
+<td>Flights MonthView <a href="https://www.skyscanner.net/transport/flights/sof/ams/?adults=1&amp;children=2&amp;adultsv2=1&amp;childrenv2=3%7C2&amp;infants=0&amp;cabinclass=economy&amp;rtn=1&amp;preferdirects=false&amp;outboundaltsenabled=false&amp;inboundaltsenabled=false&amp;oym=2202&amp;iym=2202&amp;ref=home&amp;selectedoday=01&amp;selectediday=01">Example Link</a></td>
 </tr>
 <tr>
 <td><a href="#flights-browse-view-supported-parameters-schema">browse-view</a></td>
-<td>Flights BrowseView <a href="https://www.skyscanner.net/transport/flights-from/edi/?adults=1&amp;children=2&amp;adultsv2=1&amp;childrenv2=3%7c2&amp;infants=0&amp;cabinclass=economy&amp;rtn=1&amp;preferdirects=false&amp;outboundaltsenabled=false&amp;inboundaltsenabled=false&amp;oym=2201&amp;iym=2201&amp;ref=home">Example Link</a></td>
+<td>Flights BrowseView <a href="https://www.skyscanner.net/transport/flights-from/edi/?adults=1&amp;children=2&amp;adultsv2=1&amp;childrenv2=3%7c2&amp;infants=0&amp;cabinclass=economy&amp;rtn=1&amp;preferdirects=false&amp;outboundaltsenabled=false&amp;inboundaltsenabled=false&amp;oym=2202&amp;iym=2202&amp;ref=home">Example Link</a></td>
 </tr>
 <tr>
 <td><a href="#flights-day-view-for-multicity-search-schema">multicity</a></td>
-<td>Flights Multicity <a href="https://www.skyscanner.net/transport/d/sof/2022-01-01/ams/ams/2022-01-07/lond/lond/2022-01-07/sof?adults=1&amp;children=2&amp;adultsv2=1&amp;childrenv2=3%7c2&amp;infants=0&amp;cabinclass=economy&amp;ref=home#/">Example Link</a></td>
+<td>Flights Multicity <a href="https://www.skyscanner.net/transport/d/sof/2022-02-01/ams/ams/2022-02-07/lond/lond/2022-02-07/sof?adults=1&amp;children=2&amp;adultsv2=1&amp;childrenv2=3%7c2&amp;infants=0&amp;cabinclass=economy&amp;ref=home#/">Example Link</a></td>
 </tr>
 <tr>
 <td><a href="#cheap-flights-to-supported-parameters-schema">cheap-flights-to</a></td>
@@ -5235,7 +5253,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 </tr>
 <tr>
 <td><a href="#carhire-day-view-supported-parameters-schema">day-view</a></td>
-<td>CarHire DayView <a href="https://www.skyscanner.net/carhire/results/95565041/95565041/2022-01-01T10:00/2022-01-07T10:00/30">Example Link</a></td>
+<td>CarHire DayView <a href="https://www.skyscanner.net/carhire/results/95565041/95565041/2022-02-01T10:00/2022-02-07T10:00/30">Example Link</a></td>
 </tr>
 </tbody></table>
 <h2 id='flights-home-page-schema'>Flights Home Page Schema</h2><div class="highlight"><pre class="highlight plaintext"><code>/flights/home
@@ -7614,6 +7632,645 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <p><code>integer</code> Driver&#39;s age</p>
 <h4 id='driverage-constraints'>driverAge Constraints</h4>
 <p><strong>unknown format</strong>: the value of this string must follow the format: <code>driver-age</code></p>
+<h3 id='market'>market</h3>
+<p>The market of the user. Examples: UK, US, ES</p>
+
+<p><code>market</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Market</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='market-type'>market Type</h4>
+<p><code>string</code> Market</p>
+<h4 id='market-constraints'>market Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>market</code></p>
+<h3 id='locale'>locale</h3>
+<p>The desired locale for the page. Examples: es-ES, en-GB, ru-RU</p>
+
+<p><code>locale</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Locale</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='locale-type'>locale Type</h4>
+<p><code>string</code> Locale</p>
+<h4 id='locale-constraints'>locale Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>locale</code></p>
+<h3 id='currency'>currency</h3>
+<p>The desired currency for the page. Examples: GBP, EUR, USD</p>
+
+<p><code>currency</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Currency</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='currency-type'>currency Type</h4>
+<p><code>string</code> Currency</p>
+<h4 id='currency-constraints'>currency Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>currency</code></p>
+<h2 id='hotels-home-view-schema'>Hotels Home View Schema</h2><div class="highlight"><pre class="highlight plaintext"><code>/hotels/home-view
+</code></pre></div>
+<p>A schema definition for the hotels home-view microsite supported parameters.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Abstract</th>
+<th style="text-align: left">Extensible</th>
+<th style="text-align: left">Status</th>
+<th style="text-align: left">Identifiable</th>
+<th style="text-align: left">Custom Properties</th>
+<th style="text-align: left">Additional Properties</th>
+<th style="text-align: left">Access Restrictions</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Can be instantiated</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Unknown status</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Forbidden</td>
+<td style="text-align: left">Allowed</td>
+<td style="text-align: left">none</td>
+</tr>
+</tbody></table>
+<h3 id='hotels-home-view-type'>Hotels Home View Type</h3>
+<p><code>object</code> Hotels Home View</p>
+<h2 id='hotels-home-view-properties'>Hotels Home View Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Property</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Nullable</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#checkin">checkin</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#checkout">checkout</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#adults">adults</a></td>
+<td style="text-align: left"><code>integer</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#rooms">rooms</a></td>
+<td style="text-align: left"><code>integer</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#skyscanner_node_code">skyscanner_node_code</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#market">market</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#locale">locale</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency">currency</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+</tbody></table>
+<h3 id='checkin'>checkin</h3>
+<p>Checkin date in the format YYYY-MM-DD</p>
+
+<p><code>checkin</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Check-in Date</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='checkin-type'>checkin Type</h4>
+<p><code>string</code> Check-in Date</p>
+<h4 id='checkin-constraints'>checkin Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yyyy-mm-dd</code></p>
+<h3 id='checkout'>checkout</h3>
+<p>Checkout date in the format YYYY-MM-DD</p>
+
+<p><code>checkout</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Checkout Date</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='checkout-type'>checkout Type</h4>
+<p><code>string</code> Checkout Date</p>
+<h4 id='checkout-constraints'>checkout Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yyyy-mm-dd</code></p>
+<h3 id='adults'>adults</h3>
+<p>Number of adults. Adults number should be greater than or equal to the rooms number.</p>
+
+<p><code>adults</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>integer</code> Number of adult guests</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='adults-type'>adults Type</h4>
+<p><code>integer</code> Number of adult guests</p>
+<h3 id='rooms'>rooms</h3>
+<p>Number of rooms. Rooms number should be less than or equal to the adults number.</p>
+
+<p><code>rooms</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>integer</code> Number of rooms</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='rooms-type'>rooms Type</h4>
+<p><code>integer</code> Number of rooms</p>
+<h3 id='skyscanner_node_code'>skyscanner_node_code</h3>
+<p>The IATA code of the destination.</p>
+
+<p><code>skyscanner_node_code</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Destination</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='skyscanner_node_code-type'>skyscanner_node_code Type</h4>
+<p><code>string</code> Destination</p>
+<h3 id='market'>market</h3>
+<p>The market of the user. Examples: UK, US, ES</p>
+
+<p><code>market</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Market</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='market-type'>market Type</h4>
+<p><code>string</code> Market</p>
+<h4 id='market-constraints'>market Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>market</code></p>
+<h3 id='locale'>locale</h3>
+<p>The desired locale for the page. Examples: es-ES, en-GB, ru-RU</p>
+
+<p><code>locale</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Locale</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='locale-type'>locale Type</h4>
+<p><code>string</code> Locale</p>
+<h4 id='locale-constraints'>locale Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>locale</code></p>
+<h3 id='currency'>currency</h3>
+<p>The desired currency for the page. Examples: GBP, EUR, USD</p>
+
+<p><code>currency</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Currency</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='currency-type'>currency Type</h4>
+<p><code>string</code> Currency</p>
+<h4 id='currency-constraints'>currency Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>currency</code></p>
+<h2 id='hotels-day-view-schema'>Hotels Day View Schema</h2><div class="highlight"><pre class="highlight plaintext"><code>/hotels/day-view
+</code></pre></div>
+<p>A schema definition for the hotels day-view microsite supported parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Abstract</th>
+<th style="text-align: left">Extensible</th>
+<th style="text-align: left">Status</th>
+<th style="text-align: left">Identifiable</th>
+<th style="text-align: left">Custom Properties</th>
+<th style="text-align: left">Additional Properties</th>
+<th style="text-align: left">Access Restrictions</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Can be instantiated</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Unknown status</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Forbidden</td>
+<td style="text-align: left">Allowed</td>
+<td style="text-align: left">none</td>
+</tr>
+</tbody></table>
+<h3 id='hotels-day-view-type'>Hotels Day View Type</h3>
+<p><code>object</code> Hotels Day View</p>
+<h2 id='hotels-day-view-properties'>Hotels Day View Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Property</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Nullable</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#entity_id">entity_id</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#checkin">checkin</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#checkout">checkout</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#adults">adults</a></td>
+<td style="text-align: left"><code>integer</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#rooms">rooms</a></td>
+<td style="text-align: left"><code>integer</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#sort">sort</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#market">market</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#locale">locale</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency">currency</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+</tbody></table>
+<h3 id='entity_id'>entity_id</h3>
+<p>The ID of the geo location for which the search will be performed.</p>
+
+<p><code>entity_id</code></p>
+
+<ul>
+<li><p>is required</p></li>
+<li><p>Type: <code>string</code> Destination ID</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='entity_id-type'>entity_id Type</h4>
+<p><code>string</code> Destination ID</p>
+<h4 id='entity_id-constraints'>entity_id Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>entity-id</code></p>
+<h3 id='checkin'>checkin</h3>
+<p>Checkin date in the format YYYY-MM-DD</p>
+
+<p><code>checkin</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Check-in Date</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='checkin-type'>checkin Type</h4>
+<p><code>string</code> Check-in Date</p>
+<h4 id='checkin-constraints'>checkin Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yyyy-mm-dd</code></p>
+<h3 id='checkout'>checkout</h3>
+<p>Checkout date in the format YYYY-MM-DD</p>
+
+<p><code>checkout</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Checkout Date</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='checkout-type'>checkout Type</h4>
+<p><code>string</code> Checkout Date</p>
+<h4 id='checkout-constraints'>checkout Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yyyy-mm-dd</code></p>
+<h3 id='adults'>adults</h3>
+<p>Number of adults. Adults number should be greater than or equal to the rooms number.</p>
+
+<p><code>adults</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>integer</code> Number of adults in the room. Adult&#39;s number should be greater than or equal to the rooms number.</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='adults-type'>adults Type</h4>
+<p><code>integer</code> Number of adults in the room. Adult&#39;s number should be greater than or equal to the rooms number.</p>
+<h4 id='adults-constraints'>adults Constraints</h4>
+<p><strong>minimum</strong>: the value of this number must greater than or equal to: <code>1</code></p>
+<h4 id='adults-default-value'>adults Default Value</h4>
+<p>The default value is:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="mi">2</span><span class="w">
+</span></code></pre></div><h3 id='rooms'>rooms</h3>
+<p>Number of rooms. Rooms number should be less than or equal to the adults number.</p>
+
+<p><code>rooms</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>integer</code> Number of rooms. Room&#39;s number should be less than or equal to the adults number.</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='rooms-type'>rooms Type</h4>
+<p><code>integer</code> Number of rooms. Room&#39;s number should be less than or equal to the adults number.</p>
+<h4 id='rooms-constraints'>rooms Constraints</h4>
+<p><strong>minimum</strong>: the value of this number must greater than or equal to: <code>1</code></p>
+<h4 id='rooms-default-value'>rooms Default Value</h4>
+<p>The default value is:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="mi">1</span><span class="w">
+</span></code></pre></div><h3 id='sort'>sort</h3>
+<p>Defines the order in which search results will appear. Options are: price, -price, distance, -rating, stars, -stars.</p>
+
+<p><code>sort</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Sorting</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='sort-type'>sort Type</h4>
+<p><code>string</code> Sorting</p>
+<h4 id='sort-constraints'>sort Constraints</h4>
+<p><strong>enum</strong>: the value of this property must be equal to one of the following values:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Value</th>
+<th style="text-align: left">Explanation</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>&quot;price&quot;</code></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><code>&quot;-price&quot;</code></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><code>&quot;distance&quot;</code></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><code>&quot;-hotel_rating&quot;</code></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><code>&quot;stars&quot;</code></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><code>&quot;-stars&quot;</code></td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h3 id='market'>market</h3>
+<p>The market of the user. Examples: UK, US, ES</p>
+
+<p><code>market</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Market</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='market-type'>market Type</h4>
+<p><code>string</code> Market</p>
+<h4 id='market-constraints'>market Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>market</code></p>
+<h3 id='locale'>locale</h3>
+<p>The desired locale for the page. Examples: es-ES, en-GB, ru-RU</p>
+
+<p><code>locale</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Locale</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='locale-type'>locale Type</h4>
+<p><code>string</code> Locale</p>
+<h4 id='locale-constraints'>locale Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>locale</code></p>
+<h3 id='currency'>currency</h3>
+<p>The desired currency for the page. Examples: GBP, EUR, USD</p>
+
+<p><code>currency</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Currency</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='currency-type'>currency Type</h4>
+<p><code>string</code> Currency</p>
+<h4 id='currency-constraints'>currency Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>currency</code></p>
+<h2 id='hotel-details-schema'>Hotel Details Schema</h2><div class="highlight"><pre class="highlight plaintext"><code>/hotels/hotel-details
+</code></pre></div>
+<p>A schema definition for the hotel details microsite supported parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Abstract</th>
+<th style="text-align: left">Extensible</th>
+<th style="text-align: left">Status</th>
+<th style="text-align: left">Identifiable</th>
+<th style="text-align: left">Custom Properties</th>
+<th style="text-align: left">Additional Properties</th>
+<th style="text-align: left">Access Restrictions</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Can be instantiated</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Unknown status</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Forbidden</td>
+<td style="text-align: left">Allowed</td>
+<td style="text-align: left">none</td>
+</tr>
+</tbody></table>
+<h3 id='hotel-details-type'>Hotel Details Type</h3>
+<p><code>object</code> Hotel Details</p>
+<h2 id='hotel-details-properties'>Hotel Details Properties</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Property</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Nullable</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#hotelid">hotelId</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Required</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#checkin">checkin</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#checkout">checkout</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#adults">adults</a></td>
+<td style="text-align: left"><code>integer</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#rooms">rooms</a></td>
+<td style="text-align: left"><code>integer</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#market">market</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#locale">locale</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency">currency</a></td>
+<td style="text-align: left"><code>string</code></td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">cannot be null</td>
+</tr>
+</tbody></table>
+<h3 id='hotelid'>hotelId</h3>
+<p>The entity ID of the hotel.</p>
+
+<p><code>hotelId</code></p>
+
+<ul>
+<li><p>is required</p></li>
+<li><p>Type: <code>string</code> Hotel ID</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='hotelid-type'>hotelId Type</h4>
+<p><code>string</code> Hotel ID</p>
+<h4 id='hotelid-constraints'>hotelId Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>hotel-id</code></p>
+<h3 id='checkin'>checkin</h3>
+<p>Date in the format YYYY-MM-DD</p>
+
+<p><code>checkin</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Check-in Date</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='checkin-type'>checkin Type</h4>
+<p><code>string</code> Check-in Date</p>
+<h4 id='checkin-constraints'>checkin Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yyyy-mm-dd</code></p>
+<h3 id='checkout'>checkout</h3>
+<p>Date in the format YYYY-MM-DD</p>
+
+<p><code>checkout</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>string</code> Checkout Date</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='checkout-type'>checkout Type</h4>
+<p><code>string</code> Checkout Date</p>
+<h4 id='checkout-constraints'>checkout Constraints</h4>
+<p><strong>unknown format</strong>: the value of this string must follow the format: <code>date-yyyy-mm-dd</code></p>
+<h3 id='adults'>adults</h3>
+<p>Number of adults</p>
+
+<p><code>adults</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>integer</code> Number of adult guests</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='adults-type'>adults Type</h4>
+<p><code>integer</code> Number of adult guests</p>
+<h3 id='rooms'>rooms</h3>
+<p>Number of rooms</p>
+
+<p><code>rooms</code></p>
+
+<ul>
+<li><p>is optional</p></li>
+<li><p>Type: <code>integer</code> Number of rooms</p></li>
+<li><p>cannot be null</p></li>
+</ul>
+<h4 id='rooms-type'>rooms Type</h4>
+<p><code>integer</code> Number of rooms</p>
 <h3 id='market'>market</h3>
 <p>The market of the user. Examples: UK, US, ES</p>
 
